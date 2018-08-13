@@ -1,7 +1,4 @@
-import sys
-#sys.path.append('../kaffe')
-sys.path.append('/home/usc/Desktop/Research/FG18/ExpNet_Code_Release/kaffe/tensorflow')
-from network_expr import Network_Expr
+from kaffe.tensorflow import Network_Expr
 
 
 class ResNet_101(Network_Expr):

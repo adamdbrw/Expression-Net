@@ -6,7 +6,7 @@ from ..layers import NodeKind
 from ..transformers import (DataInjector, DataReshaper, NodeRenamer, ReLUFuser,
                             BatchNormScaleBiasFuser, BatchNormPreprocessor, ParameterNamer)
 
-from . import network
+from . import network_expr
 
 
 def get_padding_type(kernel_params, input_shape, output_shape):
@@ -82,7 +82,7 @@ class TensorFlowMapper(NodeMapper):
         input_shape = node.get_only_parent().output_shape
         padding = get_padding_type(kernel_params, input_shape, node.output_shape)
         # Only emit the padding if it's not the default value.
-        padding = {'padding': padding} if padding != network.DEFAULT_PADDING else {}
+        padding = {'padding': padding} if padding != network_expr.DEFAULT_PADDING else {}
         return (kernel_params, padding)
 
     def map_convolution(self, node):

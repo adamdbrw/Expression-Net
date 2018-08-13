@@ -1,9 +1,4 @@
-import sys
-#sys.path.append('../kaffe')
-sys.path.append('/home/usc/Desktop/Research/FG18/ExpNet_Code_Release/kaffe/tensorflow')
-from network_shape import Network_Shape
-
-
+from kaffe.tensorflow import Network_Shape
 
 class ResNet_101(Network_Shape):
     def setup(self):
